@@ -5,7 +5,6 @@
     $tax = 0;
     $amountOfTax = 0;
     $netSalary = 0;
-    $display = 'none';
 
     if($salary >= 50000){
         $tax = 45;

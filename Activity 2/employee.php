@@ -34,44 +34,46 @@
     <br>
 
     <?php
-    include "grossSalary.php";
+    if(isset($_GET['id'])){
 
+        include "grossSalary.php";
 
-    echo "
-    <table style='display:$display;'>
-    <tr>
+        echo "
+        <table>
+        <tr>
         <td>Employee ID:</td>
         <td>$id</td>
-    </tr>
-    <tr>
+        </tr>
+        <tr>
         <td>Last Name: </td>
         <td>$name</td>
-    </tr>
-    <tr>
+        </tr>
+        <tr>
         <td>Gross Salary: </td>
         <td>$$salary</td>
-    </tr>
-    <tr>
+        </tr>
+        <tr>
         <td>Tax (%): </td>
         <td>$tax%</td>
-    </tr>
-    <tr>
+        </tr>
+        <tr>
         <td>Amount of tax: </td>
         <td>$$amountOfTax</td>
-    </tr>
-    <tr>
+        </tr>
+        <tr>
         <td>Net Salary: </td>
         <td>$$netSalary</td>
-    </tr>
-    </table>";
-    ?>
+        </tr>
+        </table>";
+    }
+        ?>
 </body>
 
 
 <style>
 
 *{
-    font-family: Roboto
+    font-family: Roboto;
 }
 
 form,table{
