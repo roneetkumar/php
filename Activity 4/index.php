@@ -1,5 +1,6 @@
 <?php
 
+// declare the Array empSalary
 $empSalary = array(
     array('Jan' => 1600, 'Feb' => 1650, 'Apr' => 1600, 'Jun' => 1720, 'Jul' => 1900),
     array('Mar' => 2300, 'Jun' => 2100, 'Jul' => 2400),
@@ -8,26 +9,28 @@ $empSalary = array(
 
 $i = 1;
 
+// Display the Array empSalary
 echo "<br><br><u>Before Min,Max,Avg</u> :- <br><br><br>";
 
 foreach ($empSalary as $singleArray) {
     echo "Salary of Employee $i - ";
 
-    $findMax = reset($singleArray);
-    $findMin = end($singleArray);
+    $maxSalary = reset($singleArray);
+    $minSalary = end($singleArray);
     $total = 0;
     foreach ($singleArray as $key => $value) {
         echo "$key: $value$, &nbsp;&nbsp;";
-        $findMax = ($value > $findMax) ? $value : $findMax;
-        $findMin = ($value > $findMin) ? $findMin : $value;
+        $maxSalary = findMax($value, $maxSalary);
+        $minSalary = findMin($value, $minSalary);
         $total += $value;
     }
 
-    $avg = $total / count($singleArray);
+    $avgSalary = findAvg($total, $singleArray);
 
-    $empSalary[$i - 1] += array('| &nbsp; Max' => $findMax);
-    $empSalary[$i - 1] += array('Min' => $findMin);
-    $empSalary[$i - 1] += array('Avg' => floor($avg));
+    // adding min, max, avg to the array
+    $empSalary[$i - 1] += array('| &nbsp; Max' => $maxSalary);
+    $empSalary[$i - 1] += array('Min' => $minSalary);
+    $empSalary[$i - 1] += array('Avg' => floor($avgSalary));
 
     echo "<br>";
     $i++;
@@ -45,4 +48,20 @@ foreach ($empSalary as $singleArray) {
     }
     $i++;
     echo "<hr>";
+}
+
+// functions for findMax, findMin, findAvg
+function findMax($value, $maxSalary)
+{
+    return ($value > $maxSalary) ? $value : $maxSalary;
+}
+
+function findMin($value, $minSalary)
+{
+    return ($value > $minSalary) ? $minSalary : $value;
+}
+
+function findAvg($total, $singleArray)
+{
+    return $total / count($singleArray);
 }
