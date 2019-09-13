@@ -28,9 +28,9 @@ foreach ($empSalary as $singleArray) {
     $avgSalary = findAvg($total, $singleArray);
 
     // adding min, max, avg to the array
-    $empSalary[$i - 1] += array('| &nbsp; Max' => $maxSalary);
-    $empSalary[$i - 1] += array('Min' => $minSalary);
-    $empSalary[$i - 1] += array('Avg' => floor($avgSalary));
+    $empSalary[$i - 1] += array(
+        'Max' => $maxSalary, 'Min' => $minSalary, 'Avg' => floor($avgSalary),
+    );
 
     echo "<br>";
     $i++;

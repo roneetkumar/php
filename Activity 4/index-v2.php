@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <?php
-
+<?php
 $empSalary = array(
     array('Jan' => 1600, 'Feb' => 1650, 'Apr' => 1600, 'Jun' => 1720, 'Jul' => 1900),
     array('Mar' => 2300, 'Jun' => 2100, 'Jul' => 2400),
@@ -17,24 +7,22 @@ $empSalary = array(
 
 $i = 1;
 
-echo "<br><br><h3>Before Min,Max,Avg</h3><br><br><br>";
+echo "<br><br><h3>Before Min, Max, Avg</h3>";
 echo "<div>";
 foreach ($empSalary as $singleArray) {
     echo "<table border='1'>";
-    echo "<caption> Salary of Employee $i </caption>";
+    echo "<caption><b> Salary of Employee - $i </b></caption>";
     foreach ($singleArray as $key => $value) {
         echo "<tr>";
         echo "<td>$key </td><td>$value$</td>";
         echo "</tr>";
     }
 
-    $maxSalary = max($singleArray);
-    $minSalary = min($singleArray);
-    $avgSalary = array_sum($singleArray) / count($singleArray);
-
-    $empSalary[$i - 1] += array('Max' => $maxSalary);
-    $empSalary[$i - 1] += array('Min' => $minSalary);
-    $empSalary[$i - 1] += array('Avg' => floor($avgSalary));
+    $empSalary[$i - 1] += array(
+        'Max' => max($singleArray),
+        'Min' => min($singleArray),
+        'Avg' => floor(array_sum($singleArray) / count($singleArray)),
+    );
 
     $i++;
     echo "</table>";
@@ -43,12 +31,12 @@ echo "</div>";
 
 $i = 1;
 
-echo "<br><br><h3>After Min,Max,Avg</h3><br><br><br>";
+echo "<br><br><h3>After Min, Max, Avg</h3>";
 echo "<div>";
 
 foreach ($empSalary as $singleArray) {
     echo "<table border='1'>";
-    echo "<caption> Salary of Employee $i </caption>";
+    echo "<caption><b> Salary of Employee - $i </b></caption>";
     foreach ($singleArray as $key => $value) {
         echo "<tr>";
         echo "<td>$key </td><td>$value$</td>";
@@ -59,25 +47,25 @@ foreach ($empSalary as $singleArray) {
 }
 echo "</div>";
 
-?>
-</body>
+echo "<style>
 
-<style>
+    td{
+        padding: 5px 40px
+    }
 
-td{
-    padding: 5px 40px
-}
+    div{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        max-width: 900px;
+        margin: auto;
+        grid-gap: 1em
+    }
 
-div{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    max-width: 900px;
-    margin: auto;
-    grid-gap: 1em
-}
+    h3{
+        text-align: center
+    }
 
-h3{
-    text-align: center
-}
-</style>
-</html>
+    caption{
+        margin: 10px auto
+    }
+    </style>";
