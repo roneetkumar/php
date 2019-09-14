@@ -44,13 +44,58 @@ function findAvg($empSalary)
 
 function addToArray($empSalary)
 {
-    $i = 0;
     foreach ($empSalary as $key => $value) {
-        $max = findMax($empSalary[$i]);
-        $min = findMin($empSalary[$i]);
-        $avg = findAvg($empSalary[$i]);
-        $empSalary[$i] += array('Min' => $min, 'Max' => $max, 'Avg' => $avg);
-        $i++;
+        $max = findMax($value);
+        $min = findMin($value);
+        $avg = findAvg($value);
+        $empSalary[$key] += array('Min' => $min, 'Max' => $max, 'Avg' => $avg);
     }
     return $empSalary;
+}
+
+//---------------------- version with the table---------------------------------------------------
+
+function displayEmp($empSalary, $heading)
+{
+    $i = 1;
+    echo "<br><br><h3>Before Min, Max, Avg</h3>";
+    echo "<div>";
+    foreach ($empSalary as $singleArray) {
+        echo "<table border='1'>";
+        echo "<caption><b> Salary of Employee - $i </b></caption>";
+        foreach ($singleArray as $key => $value) {
+            echo "<tr>";
+            echo "<td>$key </td><td>$value$</td>";
+            echo "</tr>";
+        }
+        $i++;
+        echo "</table>";
+    }
+    echo "</div>";
+}
+
+function applyStyles()
+{
+    echo "<style>
+
+    td{
+        padding: 5px 40px
+    }
+
+    div{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        max-width: 900px;
+        margin: auto;
+        grid-gap: 1em
+    }
+
+    h3{
+        text-align: center
+    }
+
+    caption{
+        margin: 10px auto
+    }
+    </style>";
 }
