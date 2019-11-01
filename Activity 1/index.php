@@ -21,14 +21,14 @@
     <label for="">
 
     <?php
-        if(isset($_GET['celcius'])){
-            $inCelcius = $_GET['celcius'];
-            $inFer = $inCelcius * 9/5 + 32;
-            echo "Temprature in Fahrenheit : <b>$inFer</b>";
-        }else{
-            echo "Please enter the value";
-        }
-    ?>
+if (isset($_GET['celcius'])) {
+    $inCelcius = $_GET['celcius'];
+    $inFer = $inCelcius * 9 / 5 + 32;
+    echo "Temprature in Fahrenheit : <b>$inFer</b>";
+} else {
+    echo "Please enter the value";
+}
+?>
 
     </label><br><br>
     <input type="submit" value="OK" name="submit">
