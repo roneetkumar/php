@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+</head>
+
+<body>
+
+    {% set fname = "Roneet Kumar" %}
+    {% set city = "Patiala" %}
+    {% set country = "India" %}
+    <h1>Name - {{ fname }} </h1>
+    <h1>City - {{ city }}</h1>
+    <h1>Country - {{ country }}</h1>
+
+    {% set names = ["Roneet","Davinder","Rupinder", "Vinay"] %}
+
+    {% for name in names %}
+    <spam> {{ name }} </spam>
+    {% endfor %}
+
+
+    <a href={{ path('page1') }}>Page1</a>
+
+</body>
+
+</html>

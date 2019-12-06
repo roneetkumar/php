@@ -1,0 +1,15 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+test:
+    path: /
+    controller: App\Controller\TestController::index
+
+page1:
+    path: /page1
+    controller: App\Controller\TestController::page1
+
+page2:
+    path: /page2
+    controller: App\Controller\TestController::page2
